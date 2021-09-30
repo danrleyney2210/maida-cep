@@ -8,10 +8,28 @@ export const Container = styled.header`
 export const Content = styled.div`
   max-width: 1120px;
   margin: 0 auto;
-  padding: 2rem 1rem 10rem;
+  padding: 2rem 1rem 2rem;
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  .form {
+    display: flex;
+
+    button {
+      background: var(--bg-primary);
+      color: #fff;
+      border: none;
+      padding: 0 0.5rem;
+      border-radius: 0.24rem;
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
 
   .form-cep {
     position: relative;
@@ -24,6 +42,7 @@ export const Content = styled.div`
       color: #fff;
       outline: none;
       border-radius: 0.25rem;
+      margin-right: 5px;
 
       &:focus {
         border: 2px solid #fff;
@@ -33,15 +52,6 @@ export const Content = styled.div`
 
     label {
       position: absolute;
-      top: 0.6rem;
-      left: 1.4rem;
-      cursor: text;
-      color: var(--text-body);
-      transition: top 200ms ease-in, left 200ms, font-size 200ms ease-in;
-    }
-
-    input:focus ~ label, 
-    input:not(:placeholder-shown) input:not(:focus)~label {
       top: -0.3rem;
       left: 0.5rem;
       font-size: 10px;
@@ -49,14 +59,14 @@ export const Content = styled.div`
       color: #fff;
       background: var(--background);
     }
+  }
 
-    button {
-      font-size: 1rem;
-      color: #fff;
-      background: var(--bg-primary);
-      border: 0;
-      padding: 0.7rem;
-      border-radius: 0.25rem;
-    }
+  @media (max-width:450px){
+    flex-direction: column;
+    padding: 2rem 1rem 2rem;
+
+    .form {
+      margin-top: 2rem;
+    }    
   }
 `
