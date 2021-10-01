@@ -1,15 +1,28 @@
 import { Container, Content } from './styles'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { AiFillStar } from 'react-icons/ai'
-import { FaSearch } from 'react-icons/fa'
 
 export function Map({newAddress}) {
-//  console.log(newAddress)
-const [loading, setLoading] = useState(false)
 
+  const [ favoritos, setFavoritos ] = useState([]) 
+  const[ monitora, setMonitora ] = useState(false)
+
+  function favorito(e) {
+    if(favoritos.length === 0){
+      setFavoritos([...favoritos, newAddress.cep])
+      localStorage.setItem(0, JSON.stringify(newAddress))
+    }
+    else{
+      if(!favoritos.some( cep => {
+        return cep == newAddress.cep 
+      }) ){
+        setFavoritos([...favoritos, newAddress.cep])
+        localStorage.setItem((favoritos.length), JSON.stringify(newAddress))
+      }
+    }    
+  }
 
   return (
-    
     <Container>
       <Content>
         <>
@@ -29,13 +42,9 @@ const [loading, setLoading] = useState(false)
           </table>
 
           <div className="content-button">
-            <button>
-              <FaSearch />
-              Nova Busca
-              </button>
-            <button>
+            <button onClick={(e)=> favorito(e)}>
               <AiFillStar />
-              Favoritar
+              Adcionar aos favoritos
             </button>
           </div>
 
@@ -47,7 +56,7 @@ const [loading, setLoading] = useState(false)
             loading="lazy"
             allowFullScreen
             title={newAddress.cep}
-            src={`https://www.google.com/maps/embed/v1/search?q=${newAddress.cep}&key=AIzaSyCsBSH6PpjWGJC5B4SCVvgnBmFC6lkC7Bo`}
+            src={`https://www.google.com/maps/embed/v1/search?q=${newAddress.cep}&key=AIzaSyDB6Pu4YHZJ1NWbnYx-L8rmnQ6oovEC3Go`}
           ></iframe>
         </div>
         </>
