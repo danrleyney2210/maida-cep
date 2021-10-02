@@ -13,7 +13,6 @@ export const Content = styled.div`
   flex-direction: column;
 
   table {
-    
     margin: 0 0 1.5rem 0;
     border-spacing: 0;
     border: 1px solid #E6E7E8;
@@ -21,12 +20,12 @@ export const Content = styled.div`
     thead {      
       background-color: var(--bg-primary);
       color: #fff;
-      font-size: 1.2rem;
+      font-size: 1rem;
 
       th {
         text-align: start;
         font-weight: 400;      
-        padding: 10px 20px;
+        padding: 5px 10px;
       }
     }
 
@@ -36,7 +35,7 @@ export const Content = styled.div`
       td {  
         font-weight: 400;      
         padding: 5px 10px;
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
     }
   }
@@ -45,7 +44,7 @@ export const Content = styled.div`
       width: 100%;
       gap: 1rem;
       display: flex;
-      justify-content: center;
+      
 
       button {
       padding: .6rem;
@@ -64,6 +63,7 @@ export const Content = styled.div`
   }
 
   .content-map {
+    margin-top: 1.5rem;
     width: 100%;
     border: none;    
 

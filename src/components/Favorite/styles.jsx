@@ -12,6 +12,7 @@ export const Content = styled.div`
   .header-title {
     width: 100%;
     text-align: center;
+    margin-bottom: 1.5rem;
 
     h2 {
       color: #fff;

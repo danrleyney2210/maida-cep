@@ -1,18 +1,17 @@
 import { Container, Content } from "./styles";
 import  foto  from '../../assets/map.JPG';
+import { useFavorite } from "../../Context/favorites";
 
 export function Favorite() {
+  const context = useFavorite()
+
+  
   return (
     <Container>
       <Content>
         <div className="header-title">
           <h2>Meus Favoritos</h2>
         </div>
-{/* 
-        { if(localStorage.lenght == 0 ){
-          <h1>Você não tem nenhuma localização adcionada</h1>
-        }
-        } */}
 
         <div className="section-card">
           <div className="card-mapa">
