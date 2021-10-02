@@ -27,13 +27,30 @@ export function Map({newAddress}) {
             </tbody>
           </table>
 
-          <div className="content-button">
-            <button onClick={()=> favorito(newAddress)}>
-              <AiFillStar />
-              
-              Add favoritos
-            </button>
-          </div>
+          {
+            newAddress.isFavorite && (
+              <div className="content-button favoritado">
+                <button disabled>
+                  <AiFillStar />
+                  Favoritado!
+                </button>
+              </div>
+            )
+          }
+
+        {
+            !newAddress.isFavorite && (
+              <div className="content-button">
+                <button onClick={()=> favorito(newAddress)}>
+                  <AiFillStar />
+                  
+                  Add favoritos
+                </button>
+              </div>
+            )
+          }
+
+         
 
           <div className="content-map">          
             <iframe

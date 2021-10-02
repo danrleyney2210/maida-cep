@@ -2,8 +2,11 @@ import Logo from '../../assets/logo.png'
 import { Container, Content } from './styles'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useFavorite } from '../../Context/favorites';
 
 export function Header({newAddress}) {
+  const { verifyExistCepInLocalStorage } = useFavorite()
+
   const [loading, setLoading] = useState(false)
   const [cep, setCep] = useState('')
   const [ validation , setValidation] = useState(false)
@@ -43,7 +46,17 @@ export function Header({newAddress}) {
           alert('Você digitou um CEP inválido!')
           return 
         }
-        newAddress(response.data)
+
+        console.log(response.data)
+
+
+        const { newAddresFormated } = verifyExistCepInLocalStorage(response.data)
+
+        console.log(newAddresFormated)
+
+        newAddress(newAddresFormated)
+
+        
         setCep('')
       })
       .catch((error)=>{

@@ -4,7 +4,7 @@ export function Footer() {
   return(
     <Container>
       <Content>
-        <h1>Footer</h1>
+        <p>Desenvolvido por: <span>@Danrley_ney</span></p>
       </Content>
     </Container>
   )

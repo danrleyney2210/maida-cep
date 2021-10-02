@@ -62,6 +62,14 @@ export const Content = styled.div`
     }
   }
 
+  .favoritado {
+    button {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+
   .content-map {
     margin-top: 1.5rem;
     width: 100%;

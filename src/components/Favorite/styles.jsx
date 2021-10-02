@@ -9,6 +9,8 @@ export const Content = styled.div`
   margin: 0 auto;
   padding: 2rem 1rem 4rem;
 
+
+
   .header-title {
     width: 100%;
     text-align: center;
@@ -17,6 +19,14 @@ export const Content = styled.div`
     h2 {
       color: #fff;
     }
+  }
+
+  .logradouro {
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  
   }
 
   .section-card {
@@ -32,8 +42,9 @@ export const Content = styled.div`
       margin-bottom: 1.5rem;
 
     .mapa {
-      img {
-        width: 100%;
+      iframe {
+        border-radius: 0.44rem 0.44rem 0  0;
+        border: none;
       }
     }
 
@@ -74,4 +85,11 @@ export const Content = styled.div`
 
   }
 
+`
+
+export const WrapperFavorites = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 `

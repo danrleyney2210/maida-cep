@@ -10,16 +10,45 @@ export function FavoriteProvider({ children }) {
     return favoritesStorage || []
   }) 
 
-  function favorito(newAddress) {
+  function verifyExistCepInLocalStorage(newAddress) {
     const getFavorites = localStorage.getItem('MAIDACEP:favorites')
     const favoritesStorage = JSON.parse(getFavorites)
+    
+    const newAddressFormated = {...newAddress, isFavorite: false}
 
     if(favoritesStorage !== null) {
-      const findCepNewAddress = favoritesStorage.some(address => address.cep === newAddress.cep)
+        const values = [...favoritos]
+        const findCepNewAddress = favoritesStorage.findIndex(address => address.cep === newAddress.cep)
 
-      if(findCepNewAddress) {
-        return 
-      }
+        if(findCepNewAddress > -1 && !values[findCepNewAddress].isFavorite) {
+          values[findCepNewAddress] = {
+            ...values[findCepNewAddress],
+            isFavorite: true
+          }
+          
+          newAddressFormated.isFavorite = true
+          setFavoritos(values)
+        }
+
+        setFavoritos(values)
+        
+        return {
+          exist: findCepNewAddress > -1,
+          newAddresFormated: newAddressFormated
+        }
+    }
+
+    return {
+      exist: false,
+      newAddresFormated: newAddressFormated
+    }
+  }
+
+  function favorito(newAddress) {
+    const { exist } = verifyExistCepInLocalStorage(newAddress)
+
+    if(exist) {
+      return 
     }
 
     setFavoritos([...favoritos, newAddress])
@@ -27,7 +56,7 @@ export function FavoriteProvider({ children }) {
   }
 
   return (
-    <ContextFavorite.Provider value={{favoritos, favorito}}>
+    <ContextFavorite.Provider value={{favoritos, favorito, verifyExistCepInLocalStorage}}>
       {children}
     </ContextFavorite.Provider>
   )
