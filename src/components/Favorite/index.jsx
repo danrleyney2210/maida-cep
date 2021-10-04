@@ -5,9 +5,6 @@ import { useFavorite, } from "../../Context/favorites";
 export function Favorite() {
   const { favoritos } = useFavorite()
 
-  console.log(favoritos)
-
-  
   return (
     <Container>
       <Content>
@@ -17,7 +14,9 @@ export function Favorite() {
 
         {
           favoritos.length === 0 && (
-            <div>Nenhuma endereço adicionado</div>
+            <div className="body-favorite">
+              <p>Nenhuma endereço adicionado</p>
+            </div>
           )
         }
 

@@ -6,6 +6,7 @@ export const Container = styled.div`
 `
 export const Content = styled.div`
   max-width: 1120px;
+  min-height: 400px;
   margin: 0 auto;
   padding: 2rem 1rem 10rem;
   border-radius: 0.24rem;
@@ -68,7 +69,6 @@ export const Content = styled.div`
       cursor: not-allowed;
     }
   }
-
 
   .content-map {
     margin-top: 1.5rem;

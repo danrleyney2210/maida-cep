@@ -16,7 +16,6 @@ export function Header({newAddress}) {
       setCep(e.target.value)
     }
   }
-
   //função de validação de CEP
   function cepValidation(cep) {
     // valida o cep informado e chama a página resultado
@@ -28,7 +27,7 @@ export function Header({newAddress}) {
         setValidation(true);
         // window.localStorage.setItem("cep", cep);
         // window.location.href = "/resultado";
-        console.log("Validou!!")
+        // console.log("Validou!!")
         return true
       } else {
         // setValidation(false);
@@ -47,15 +46,9 @@ export function Header({newAddress}) {
           return 
         }
 
-        console.log(response.data)
-
-
         const { newAddresFormated } = verifyExistCepInLocalStorage(response.data)
 
-        console.log(newAddresFormated)
-
         newAddress(newAddresFormated)
-
         
         setCep('')
       })
@@ -64,8 +57,7 @@ export function Header({newAddress}) {
       }).finally(() => {
         setLoading(false)
       })
-    }
-    
+    }    
   }
 
   return (

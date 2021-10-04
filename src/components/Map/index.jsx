@@ -38,17 +38,16 @@ export function Map({newAddress}) {
             )
           }
 
-        {
-          !newAddress.isFavorite && (
-            <div className="content-button">
-              <button onClick={()=> favorito(newAddress)}>
-                <AiFillStar />
-                
-                Add favoritos
-              </button>
-            </div>
-          )
-        }
+          {
+            !newAddress.isFavorite && (
+              <div className="content-button">
+                <button onClick={()=> favorito(newAddress)}>
+                  <AiFillStar />                
+                  Add favoritos
+                </button>
+              </div>
+            )
+          }
 
           <div className="content-map">          
             <iframe
@@ -66,7 +65,7 @@ export function Map({newAddress}) {
         {
           !newAddress && (
             <div>
-              <h5>Você ainda não fez nenhuma pesquisa...</h5>
+              <h5>Faça uma pesquisa...</h5>
             </div>
           )
         }

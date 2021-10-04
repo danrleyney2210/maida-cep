@@ -9,7 +9,11 @@ export const Content = styled.div`
   margin: 0 auto;
   padding: 2rem 1rem 4rem;
 
-
+  .body-favorite {
+    p {
+      color: #fff;
+    }
+  }
 
   .header-title {
     width: 100%;
